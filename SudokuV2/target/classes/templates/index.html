@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link type="text/css" href="/styles.css" rel="stylesheet"/>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible">
+    <title> Sudoku Solver </title>
+</head>
+<header>
+    <h1><u>Sudoku Solver</u></h1>
+</header>
+<form action="/solve" method="post">
+<body>
+<div id="gridArea">
+    <div id="grid">
+        <input class="Box" name="arr[0][0]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <input class="Box" name="arr[0][1]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <input class="BoxB" name="arr[0][2]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <input class="Box" name="arr[0][3]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <input class="Box" name="arr[0][4]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <input class="BoxB" name="arr[0][5]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <input class="Box" name="arr[0][6]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <input class="Box" name="arr[0][7]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <input class="Box" name="arr[0][8]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <br>
+        <input class="Box" name="arr[1][0]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <input class="Box" name="arr[1][1]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <input class="BoxB" name="arr[1][2]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <input class="Box" name="arr[1][3]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <input class="Box" name="arr[1][4]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <input class="BoxB" name="arr[1][5]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <input class="Box" name="arr[1][6]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <input class="Box" name="arr[1][7]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <input class="Box" name="arr[1][8]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <br>
+        <input class="BoxU" name="arr[2][0]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <input class="BoxU" name="arr[2][1]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <input class="BoxBU" name="arr[2][2]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <input class="BoxU" name="arr[2][3]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <input class="BoxU" name="arr[2][4]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <input class="BoxBU" name="arr[2][5]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <input class="BoxU" name="arr[2][6]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <input class="BoxU" name="arr[2][7]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <input class="BoxU" name="arr[2][8]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <br>
+        <input class="Box" name="arr[3][0]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <input class="Box" name="arr[3][1]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <input class="BoxB" name="arr[3][2]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <input class="Box" name="arr[3][3]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <input class="Box" name="arr[3][4]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <input class="BoxB" name="arr[3][5]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <input class="Box" name="arr[3][6]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <input class="Box" name="arr[3][7]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <input class="Box" name="arr[3][8]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <br>
+        <input class="Box" name="arr[4][0]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <input class="Box" name="arr[4][1]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <input class="BoxB" name="arr[4][2]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <input class="Box" name="arr[4][3]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <input class="Box" name="arr[4][4]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <input class="BoxB" name="arr[4][5]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <input class="Box" name="arr[4][6]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <input class="Box" name="arr[4][7]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <input class="Box" name="arr[4][8]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <br>
+        <input class="BoxU" name="arr[5][0]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <input class="BoxU" name="arr[5][1]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <input class="BoxBU" name="arr[5][2]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <input class="BoxU" name="arr[5][3]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <input class="BoxU" name="arr[5][4]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <input class="BoxBU" name="arr[5][5]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <input class="BoxU" name="arr[5][6]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <input class="BoxU" name="arr[5][7]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <input class="BoxU" name="arr[5][8]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <br>
+        <input class="Box" name="arr[6][0]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <input class="Box" name="arr[6][1]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <input class="BoxB" name="arr[6][2]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <input class="Box" name="arr[6][3]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <input class="Box" name="arr[6][4]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <input class="BoxB" name="arr[6][5]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <input class="Box" name="arr[6][6]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <input class="Box" name="arr[6][7]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <input class="Box" name="arr[6][8]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <br>
+        <input class="Box" name="arr[7][0]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <input class="Box" name="arr[7][1]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <input class="BoxB" name="arr[7][2]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <input class="Box" name="arr[7][3]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <input class="Box" name="arr[7][4]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <input class="BoxB" name="arr[7][5]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <input class="Box" name="arr[7][6]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <input class="Box" name="arr[7][7]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <input class="Box" name="arr[7][8]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <br>
+        <input class="Box" name="arr[8][0]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <input class="Box" name="arr[8][1]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <input class="BoxB" name="arr[8][2]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <input class="Box" name="arr[8][3]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <input class="Box" name="arr[8][4]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <input class="BoxB" name="arr[8][5]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <input class="Box" name="arr[8][6]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <input class="Box" name="arr[8][7]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <input class="Box" name="arr[8][8]" type="text" autocomplete="off" maxlength="1" inputmode="numeric">
+        <br>
+    </div>
+</div>
+</body>
+<footer>
+    <div id="Options">
+        <div id="Solve">
+            <button class="solve-btn">Solve</button>
+            </div>
+            </form>
+<form action="/reset" method="post">
+        <div id="reset-btn">
+            <button class="reset"> Reset</button>
+            </form>
+        </div>
+        <div id="Theme">
+            <button class="Themes">Themes</button>
+        </div>
+    </div>
+</footer>
+
+</html>

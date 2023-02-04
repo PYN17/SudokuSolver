@@ -1,0 +1,76 @@
+html {
+    background-color: #322F3D;
+}
+body.dark {
+
+}
+body {
+    margin: auto;
+    width: 900px;
+}
+header {
+    text-align: center;
+    font-size:18pt;
+    color: #87556F;
+}
+body{
+    text-align: center;
+}
+h1{
+
+}
+footer{
+    text-align: center;
+    padding-top: 12px;
+}
+input[type='text'] {
+    margin: 4px 2px;
+    height:45px;
+    width:45px;
+    font-size:18px;
+    text-align:center;
+    background-color: #59405C;
+    color:#322F3D;
+}
+button{
+    background-color:#322F3D;
+    width: 100px;
+    border: 2px solid #87556F;
+    color:#87556F;
+    padding:7px;
+    margin: 3px;
+    font-size:12px;
+}
+input:hover {
+    background-color:#322F3D;
+    border: 2px solid #59405C;
+    color:#59405C;
+    transition: 0.4s;
+    box-shadow: 0 0 0 4px #59405C;
+}
+button:hover {
+    background-color:#87556F;
+    border: 2px solid #322F3D;
+    color:#322F3D;
+    transition: 0.4s;
+    box-shadow: 0 0 0 4px #87556F;
+}
+#gridArea {
+    display:inline-block;
+    white-space:nowrap;
+}
+#grid {
+    display:inline-block
+}
+input.BoxB {
+    margin-right:12px;
+}
+
+input.BoxBU {
+    margin-right:12px;
+    margin-bottom:12px;
+}
+
+input.BoxU {
+    margin-bottom:12px;
+}
