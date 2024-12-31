@@ -1,13 +1,10 @@
 package com.PYN.sudokuV2.logic;
 
-//Ver 0.1
-//Improvements: hash mapping, GUI, smarter code, apply best practices
+//Ver 0.2
+//Improvements: GUI, smarter code, apply best practices
 public class solver {
 
-    public static void main(String[] args) {//main method
-    }
-
-    /*public static class board { //test board
+    /*public static class board { //TEST BOARD
         static int[][] b = { //sudoku board
                 {0, 0, 0, 8, 0, 7, 9, 1, 0},
                 {9, 0, 0, 3, 4, 0, 2, 0, 0},
@@ -32,7 +29,7 @@ public class solver {
                     if (col != 0 && col % 3 == 0) {
                         System.out.print("|" + " ");//prints side boarder
                     }
-                    System.out.print(board.b[row][col] + " ");//improves readability
+                    System.out.print(board.b[row][col] + " ");
                 }
             }
             System.out.print("\n\n");
@@ -81,6 +78,5 @@ public class solver {
         }
         return true;
     }
-
 }
 
