@@ -27,7 +27,7 @@ input[type='text'] {
     margin: 4px 2px;
     height:45px;
     width:45px;
-    font-size:18px;
+    font-size:22px;
     text-align:center;
     background-color: #59405C;
     color:#322F3D;
@@ -39,7 +39,7 @@ button{
     color:#87556F;
     padding:7px;
     margin: 3px;
-    font-size:12px;
+    font-size:18px;
 }
 input:hover {
     background-color:#322F3D;
