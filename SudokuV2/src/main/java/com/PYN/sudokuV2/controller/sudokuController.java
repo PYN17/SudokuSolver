@@ -2,35 +2,37 @@ package com.PYN.sudokuV2.controller;
 
 import com.PYN.sudokuV2.logic.solver;
 import com.PYN.sudokuV2.Model.board;
-import org.springframework.stereotype.Controller;
+import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
-@Controller
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+@RestController
 public class sudokuController {
+    @PostMapping(value = "/solve", consumes = "application/json", produces = "application/json")
+    public ResponseEntity<Map<String, Object>> solve(@RequestBody sudokuRequest request){
+        board board = new board();
 
-    private final board board = new board();
-    @GetMapping("/") //root of url structure
-    public String index(Model model) {
-        model.addAttribute("arr", board.getArr());
-        return "index";
-    }
+        board.setArr(request.getArrBoard());
+        String diffLvl = board.diffClass();
 
-    @PostMapping("/solve")//the result of clicking the solve button due to the solve method in html doc
-    public String solution(@ModelAttribute("board") board board, Model model) {
-        board.nullToZ(board.getArr()); //convert null spaces to zeros for solver
-        solver.solve(board.getArr()); //Solve the board
-        model.addAttribute("arr", board.getArr()); //Pass solved board array to the view
+        List<int[][]> steps = new ArrayList<>(); //store steps of solving process for animation
+        long start = System.nanoTime();
+        solver.solve(board.getArr(), steps); //Solve the board
+        long end = System.nanoTime();
+
+        Map<String,Object> response = new HashMap<>();
+        response.put("difficulty", diffLvl);
+        response.put("steps", steps); // For animation
+        response.put("stepCnt", steps.size()); // For stats
+        response.put("timeStat", (end - start) / 1_000_000 + "ms"); //For time stat
+        response.put("SolvedBoard", board.getArr());
         System.out.println(board.dtString()); //print solution to terminal for debugging
-        return "index"; //return page with updated board
-    }
 
-    @PostMapping("/reset")
-    public String reset(@ModelAttribute("board") board board, Model model) {
-        board.clear(board.getArr()); //set bard to null
-        model.addAttribute("arr", board.getArr()); //pass board to model
-        return "index"; //return page with updated board
+        return ResponseEntity.ok(response);
     }
 }
