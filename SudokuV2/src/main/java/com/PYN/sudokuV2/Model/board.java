@@ -12,7 +12,7 @@ public class board {//This class handles the array and converting the array to t
     public void setArr(int[][] a) { this.arr = a; }
 
     public String dtString() { //print for debugging
-        return "Board array maybe " + Arrays.deepToString(arr); //Convert
+        return "Board array: " + Arrays.deepToString(arr); //Convert
     }
 
     public static String diffClass(){

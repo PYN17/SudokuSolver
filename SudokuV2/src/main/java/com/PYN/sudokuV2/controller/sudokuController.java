@@ -16,8 +16,18 @@ public class sudokuController {
     @PostMapping(value = "/solve", consumes = "application/json", produces = "application/json")
     public ResponseEntity<Map<String, Object>> solve(@RequestBody sudokuRequest request){
         board board = new board();
-
         board.setArr(request.getArrBoard());
+
+        System.out.println(board.dtString()); //print starting board to terminal for debugging
+
+        if(!solver.isValid(board.getArr())){
+            Map<String, Object> errorBody = new HashMap<>();
+            errorBody.put("error", "All 3x3 subgrid, row, and column inputs must be unique.");
+            return ResponseEntity
+                    .badRequest()
+                    .body(errorBody);
+        }
+
         String diffLvl = board.diffClass();
 
         List<int[][]> steps = new ArrayList<>(); //store steps of solving process for animation
@@ -31,6 +41,7 @@ public class sudokuController {
         response.put("stepCnt", steps.size()); // For stats
         response.put("timeStat", (end - start) / 1_000_000 + "ms"); //For time stat
         response.put("SolvedBoard", board.getArr());
+        System.out.println("Solved Board:");
         System.out.println(board.dtString()); //print solution to terminal for debugging
 
         return ResponseEntity.ok(response);

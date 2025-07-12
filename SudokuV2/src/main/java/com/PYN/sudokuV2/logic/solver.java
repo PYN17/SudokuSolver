@@ -50,6 +50,27 @@ public class solver {
         return true;
     }
 
+    public static boolean isValid(int[][] b){ //confirm user input is valid
+        int[][] arr = new int[9][9]; //use empty array for validation so previous board check logic can be reused
+
+        for(int row = 0; row < 9; row++){
+            for(int col = 0; col < 9; col++){
+                if(b[row][col] != 0) {
+                    if (b[row][col] < 0 || b[row][col] > 9) {
+                        System.out.println("Bad numbers");
+                        return false;
+                    } //reuse old logic
+                    if (!(checkB(arr, row, col, b[row][col]) && checkRnC(arr, row, col, b[row][col]))) {
+                        System.out.println("Bad number placement");
+                        return false;
+                    }
+                    arr[row][col] = b[row][col]; //set value to new board and continue to verify
+                }
+            }
+        }
+        return true;
+    }
+
     static int[][] copyBoard(int[][] b){ //Make a copy of the board at this point in the processes
         int[][] copy = new int[9][9];
 
@@ -59,38 +80,5 @@ public class solver {
         return copy;
     }
 
-
-        /*public static class board { //TEST BOARD
-        static int[][] b = { //sudoku board
-                {0, 0, 0, 8, 0, 7, 9, 1, 0},
-                {9, 0, 0, 3, 4, 0, 2, 0, 0},
-                {0, 0, 5, 0, 0, 0, 0, 7, 0},
-                {5, 9, 3, 7, 0, 2, 0, 6, 4},
-                {0, 0, 1, 0, 0, 0, 0, 3, 8},
-                {8, 7, 0, 6, 3, 1, 0, 9, 2},
-                {7, 4, 0, 0, 0, 0, 0, 2, 0},
-                {0, 0, 0, 0, 0, 4, 3, 0, 0},
-                {0, 5, 2, 1, 7, 0, 0, 0, 0},};
-
-        //prints out array board
-        static void showBoard(int[][] f) {//methods must have parameters
-            for (int row = 0; row < 9; row++) {//increments through rows
-                if (row % 3 == 0 && row != 0) {//print bottom boarder
-                    System.out.print("\n---------------------");
-                }
-                if (row != 0) {
-                    System.out.print("\n");
-                }
-                for (int col = 0; col < 9; col++) {//increments through columns per row
-                    if (col != 0 && col % 3 == 0) {
-                        System.out.print("|" + " ");//prints side boarder
-                    }
-                    System.out.print(board.b[row][col] + " ");
-                }
-            }
-            System.out.print("\n\n");
-        }
-    }
-*/
 }
 
