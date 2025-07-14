@@ -1,6 +1,6 @@
 package com.PYN.sudokuV2.controller;
 
-public class sudokuRequest { //DTO class for handling frontend JSON
+public class sudokuRequest { //Data Transfer Object class handles frontend JSON with Jackson
     private int[][] arrBoard;
 
     public sudokuRequest() {}
@@ -11,5 +11,4 @@ public class sudokuRequest { //DTO class for handling frontend JSON
         this.arrBoard = arrBoard;
         System.out.println("Received board:");
     }
-
 }

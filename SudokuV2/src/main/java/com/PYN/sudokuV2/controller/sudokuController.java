@@ -3,13 +3,13 @@ package com.PYN.sudokuV2.controller;
 import com.PYN.sudokuV2.logic.solver;
 import com.PYN.sudokuV2.Model.board;
 import org.springframework.http.ResponseEntity;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 
 @RestController
 public class sudokuController {
@@ -20,7 +20,7 @@ public class sudokuController {
 
         System.out.println(board.dtString()); //print starting board to terminal for debugging
 
-        if(!solver.isValid(board.getArr())){
+        if(!board.isValid(board.getArr())){
             Map<String, Object> errorBody = new HashMap<>();
             errorBody.put("error", "All 3x3 subgrid, row, and column inputs must be unique.");
             return ResponseEntity
@@ -31,7 +31,7 @@ public class sudokuController {
         String diffLvl = board.diffClass();
 
         List<int[][]> steps = new ArrayList<>(); //store steps of solving process for animation
-        long start = System.nanoTime();
+        long start = System.nanoTime(); //record time for solve
         solver.solve(board.getArr(), steps); //Solve the board
         long end = System.nanoTime();
 
