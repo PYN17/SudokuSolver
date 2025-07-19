@@ -1,5 +1,6 @@
 package com.PYN.sudokuV2.logic;
 
+
 public class validateUtils {
     public static boolean checkRnC(int[][] b, int row, int col, int num) {//check for duplicates in rows and columns
         for (int i = 0; i < 9; i++) {//increment

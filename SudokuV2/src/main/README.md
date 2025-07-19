@@ -8,12 +8,16 @@ This is a fully functional Sudoku solver web application built with **Java**, **
 
 - Solve any 9x9 Sudoku puzzle using recursive backtracking
 - Accepts incomplete boards with blank cells
-- Visual update of the board on solve
+- Animation update of the board on solve
 - Reset button to clear the board
 - Responsive and clean front-end layout
-- (Upcoming) Visual solving with animated updates
-- (Upcoming) Difficulty rating per puzzle
-
+- API call to Sudoku-Gen to populate board for easy usage
+- Stats dashboard
+  - Difficulty rating per puzzle
+  - Time to solve
+  - Algorithmic steps required to solve
+  
+- (Upcoming): Unit test and further error handling
 ---
 
 ## 🛠️ Tech Stack
@@ -30,8 +34,11 @@ This is a fully functional Sudoku solver web application built with **Java**, **
 ## 🧩 How It Works
 
 - The frontend accepts a 9x9 board, with blank cells left empty.
+- Alternatively, user can generate their own problem with difficulty selector.
+- User input is verified on the frontend.
 - On submit, nulls are replaced with 0s and passed to the backend.
-- The `SudokuSolver` class uses backtracking to fill valid numbers.
+- User input is further validate for correct starting problem on the backend.
+- The `Solver` class uses backtracking to fill valid numbers.
 - The result is rendered back on the same page.
 
 ---
