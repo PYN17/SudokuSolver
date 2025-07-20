@@ -29,7 +29,6 @@ public class sudokuController {
         }
 
         String diffLvl = board.diffClass();
-
         List<int[][]> steps = new ArrayList<>(); //store steps of solving process for animation
         long start = System.nanoTime(); //record time for solve
         solver.solve(board.getArr(), steps); //Solve the board

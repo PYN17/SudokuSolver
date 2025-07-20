@@ -108,7 +108,7 @@ const SudokuApp = { //namespace pattern for organization, encapsulation
 
             .then(async response => { //Wait for response and parse
                 if(!response.ok) { //Handle bad responses
-                    const data = await response.text(); //parse error
+                    const data = await response.json(); //parse error from JSON
                     alert(data.error || "Unknown error occurred.");
                     this.resetBoard();
                     return null; //Stop process after notification of error
