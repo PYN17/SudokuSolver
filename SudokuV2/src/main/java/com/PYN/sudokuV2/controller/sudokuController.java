@@ -10,7 +10,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
 @RestController
 public class sudokuController {
     @PostMapping(value = "/solve", consumes = "application/json", produces = "application/json")
