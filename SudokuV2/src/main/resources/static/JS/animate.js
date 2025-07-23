@@ -136,6 +136,7 @@ const SudokuApp = { //namespace pattern for organization, encapsulation
     },
 
     handleGenerate(event) {
+        document.getElementById("solved-border").classList.remove("solved"); //reset solved boarder
         const difficulty = document.getElementById("diff-select").value;
 
         const {puzzle} = getSudoku(difficulty); //flat 81-char string
