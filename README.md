@@ -2,6 +2,7 @@
 
 A full-stack Java web application that solves Sudoku puzzles using recursive backtracking. Built with Spring Boot and MVC architecture, this app allows users to input puzzles via a web interface and displays the computed solution in real time.
 
+Live Demo: https://sudokusolver-dj8h.onrender.com
 ---
 
 ## 🧠 Features
